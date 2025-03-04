@@ -1,35 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import ThemeToggle from "./theme-toggle"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import ThemeToggle from "./theme-toggle";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", href: "#" },
     { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled
+          ? "bg-background/90 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -38,12 +41,15 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <motion.div
-            className="text-2xl font-bold text-primary"
+            className="flex items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Laser<span className="text-foreground">Software</span>
+            <Image src="/logo.png" alt="logo" width={40} height={70} />
+            <span className="ml-4 mt-1 text-xl font-bold text-primary">
+              Laser <span className="text-foreground">Solutions.</span>
+            </span>
           </motion.div>
         </Link>
 
@@ -56,7 +62,10 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
             >
-              <Link href={item.href} className="text-foreground/80 hover:text-primary transition-colors font-medium">
+              <Link
+                href={item.href}
+                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              >
                 {item.name}
               </Link>
             </motion.div>
@@ -66,7 +75,13 @@ export default function Header() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Button>Get Started</Button>
+            <Button
+              onClick={() =>
+                window.open("https://wa.me/447777905793", "_blank")
+              }
+            >
+              Get Started
+            </Button>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -87,7 +102,11 @@ export default function Header() {
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             className="ml-2"
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </div>
@@ -116,6 +135,5 @@ export default function Header() {
         </motion.div>
       )}
     </motion.header>
-  )
+  );
 }
-

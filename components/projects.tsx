@@ -8,56 +8,49 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
 
 export default function Projects() {
-  const categories = ["All", "Web", "Mobile", "Design", "Marketing"]
   const [activeCategory, setActiveCategory] = useState("All")
   const [showAll, setShowAll] = useState(false)
 
-  // Update the category change handler
-  const handleCategoryChange = (category: string) => {
-    setActiveCategory(category)
-    setShowAll(false) // Reset the show all state when changing categories
-  }
-
   const projects = [
     {
-      title: "E-commerce Platform",
+      title: "Photographer Website",
       description: "A full-featured e-commerce platform with payment integration and inventory management.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/projects/project1.png",
       category: "Web",
       tags: ["React", "Node.js", "MongoDB"],
     },
     {
-      title: "Fitness Tracking App",
+      title: "Logistics Web Application",
       description: "Mobile application for tracking workouts, nutrition, and health metrics.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/projects/project2.png",
       category: "Mobile",
       tags: ["React Native", "Firebase", "Redux"],
     },
     {
-      title: "Corporate Website Redesign",
+      title: "Travel Agency Website",
       description: "Complete redesign of a corporate website with improved UX and performance.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/projects/project3.png",
       category: "Design",
       tags: ["UI/UX", "Figma", "Next.js"],
     },
     {
-      title: "Social Media Campaign",
+      title: "College Website",
       description: "Strategic social media campaign that increased engagement by 200%.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/projects/project4.png",
       category: "Marketing",
       tags: ["Strategy", "Content", "Analytics"],
     },
     {
       title: "Inventory Management System",
       description: "Custom inventory management system for a retail chain with 50+ locations.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/projects/project7.png",
       category: "Web",
       tags: ["Vue.js", "Laravel", "MySQL"],
     },
     {
-      title: "Real Estate App",
+      title: "Bulk Barcode Generator",
       description: "Mobile app for browsing and searching real estate listings with virtual tours.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/projects/project6.png",
       category: "Mobile",
       tags: ["Flutter", "GraphQL", "AWS"],
     },
@@ -152,16 +145,6 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={activeCategory === category ? "default" : "outline"}
-              onClick={() => handleCategoryChange(category)}
-              className="min-w-[90px] md:min-w-24 text-sm md:text-base"
-            >
-              {category}
-            </Button>
-          ))}
         </motion.div>
 
         {/* Projects grid */}
@@ -202,11 +185,11 @@ export default function Projects() {
                     height={600}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <Button variant="secondary" size="sm" className="gap-2">
                       View Project <ArrowRight className="h-4 w-4" />
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
@@ -231,9 +214,9 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Button size="lg" className="gap-2" onClick={toggleShowAll}>
+          {/* <Button size="lg" className="gap-2" onClick={toggleShowAll}>
             {showAll ? "Show Less" : "Show More"} {showAll ? null : <ArrowRight className="h-4 w-4" />}
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
     </section>

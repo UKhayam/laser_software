@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -14,7 +14,10 @@ export default function Hero() {
       </div>
 
       {/* Animated shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        style={{ zIndex: 0 }}
+      >
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"
           animate={{
@@ -49,7 +52,11 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="flex flex-col space-y-6"
           >
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               <span className="px-3 py-1 text-sm font-medium rounded-full bg-primary/10 text-primary">
                 Innovative Software Solutions
               </span>
@@ -61,7 +68,8 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              Transforming Ideas into <span className="text-primary">Digital Reality</span>
+              Transforming Ideas into{" "}
+              <span className="text-primary">Digital Reality</span>
             </motion.h1>
 
             <motion.p
@@ -70,8 +78,9 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              We build cutting-edge software solutions that help businesses thrive in the digital age. From web and
-              mobile apps to custom software development.
+              We build cutting-edge software solutions that help businesses
+              thrive in the digital age. From web and mobile apps to custom
+              software development.
             </motion.p>
 
             <motion.div
@@ -80,11 +89,21 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <Button size="lg" className="w-full sm:w-auto px-8">
+              <Button
+                onClick={() =>
+                  window.open("https://wa.me/447777905793", "_blank")
+                }
+                size="lg"
+                className="w-full sm:w-auto px-8"
+              >
                 Get Started
               </Button>
               <Link href="#services" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto px-8">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto px-8"
+                >
                   Our Services
                 </Button>
               </Link>
@@ -96,21 +115,10 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-muted overflow-hidden">
-                    <Image
-                      src={`/placeholder.svg?height=40&width=40`}
-                      alt={`Client ${i}`}
-                      width={40}
-                      height={40}
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">100+</span> satisfied clients
+              <div className="text-sm text-muted-foreground space-x-2">
+                <span className="px-3 py-1 text-sm font-medium rounded-full bg-primary/10 text-primary">
+                  Turning Vision into Reality
+                </span>
               </div>
             </motion.div>
           </motion.div>
@@ -148,7 +156,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <p className="text-sm font-medium">Client Satisfaction</p>
-                  <p className="text-xs text-muted-foreground">Based on 500+ reviews</p>
+                  <p className="text-xs text-muted-foreground">
+                    Based on 500+ reviews
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -166,7 +176,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <p className="text-sm font-medium">Years Experience</p>
-                  <p className="text-xs text-muted-foreground">In software development</p>
+                  <p className="text-xs text-muted-foreground">
+                    In software development
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -174,6 +186,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
